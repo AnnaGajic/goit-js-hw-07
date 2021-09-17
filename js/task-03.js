@@ -16,7 +16,12 @@ const images = [
 
 
 
-const gallery = document.querySelector('#gallery')
-for (const image of images) {
-    gallery.insertAdjacentHTML('beforeend', `<li><img class= "img--positioning" src="${image.url}" alt="${image.alt}" ></li>`);
-}
+const gallery = document.querySelector('#gallery');
+
+const listOfElements = images.map((element) => {
+  const li = document.createElement('li');
+  li.insertAdjacentHTML('beforeend', `<img class= "img--positioning" src="${image.url}" alt="${image.alt}" >`);
+  return li;
+});
+
+gallery.append(...listOfElements);
